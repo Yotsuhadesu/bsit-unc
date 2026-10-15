@@ -1,0 +1,53 @@
+* {
+    font-family: Arial, sans-serif;
+}
+h1 {
+    color: blue !important;
+}
+h1::before {
+    content: "‧₊˚❀༉‧₊˚.";
+    color: violet;
+}
+h2::after {
+    content: "✓";
+    color: green;
+}
+h1, h2 {
+    text-align: center;
+}
+p {
+    color: gray;
+}
+p:hover {
+    color: blue;
+    font-size: 20px;
+}
+p::first-letter {
+    font-size: 30px;
+    color: red;
+}
+li:first-child {
+    font-weight: bold;
+    color: red;
+}
+li:last-child {
+    font-weight: bold;
+    color: green;
+}
+input:focus {
+    background-color: yellow;
+    border: 2px solid blue;
+}
+.yellow-background {
+    background-color: yellow;
+}
+#preference {
+    background-color: pink;
+    color: white;
+}
+div p {
+    color: red;
+}
+div > p {
+    font-weight: bold;
+}

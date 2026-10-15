@@ -1,0 +1,46 @@
+# Topics
+- font-family
+- font-size
+    - px - fixed size in pixels
+    - em - relative to parent element
+    - rem - ralative to root element
+    - % - em but percentage
+    - vw - ralative to viewport width
+- font-weight
+    - 100-900
+    - 700 - bold
+    - 400 - normal
+    - bolder - thicker than the parent
+    - lighter - thinner than the parent
+- font-style
+    - normal
+    - italic - font's own italic version
+    - oblique - slanted
+- text-align
+    - right
+    - left
+    - justify
+    - center
+- text-decoration
+    - none
+    - underline
+    - overline
+    - line-through
+- line-height
+    - plain number
+    - length
+    - percentage
+    - normal
+- The Box Model
+    - content
+    - padding
+    - border
+    - margin
+- Padding/Margin Shorthand 
+    - 1 value: all sides
+    - 2 values: top-bottom, left-right
+    - 3 values: top, left-right, bottom
+    - 4 values: top, right, bottom, left
+- Total Width and Box Sizing
+    - content-box - only the width of the content, separate from padding and margin
+    - border-box - width of the content with the padding and margin

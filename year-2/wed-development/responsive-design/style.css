@@ -1,0 +1,20 @@
+.box {
+    font-size: 14px;
+    width: 100%;
+    background-color: violet;
+}
+.box img {
+    max-width: 100%;
+    height: auto;
+}
+@media (min-width: 769px) {
+    .box {
+        font-size: 18px;
+        width: 50%;
+    }
+}
+@media (min-width: 1025px) {
+    .box {
+        width: 25%;
+    }
+}

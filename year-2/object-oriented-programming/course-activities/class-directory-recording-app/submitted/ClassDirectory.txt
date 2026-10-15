@@ -1,0 +1,4 @@
+Section,10,Newton
+Adviser,Santos,Maria,Cruz,Female,1985-04-12,9171234567,Master of Arts in Education
+Student,102938475602,Reyes,Ana,Santos,Female,2008-11-02,9201112233,45 Luna St. Pasig City
+Student,102938475601,Alvarez,Bea,Gomez,Female,2008-03-10,9201112233,Pili

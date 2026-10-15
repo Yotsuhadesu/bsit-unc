@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /*
+        The Color Code System
+        Deep Plum: #2E1A47
+        Warm Apricot: #FFF2E6
+        Electric Teal: #00A896
+        Vibrant Coral: #FF6F59
+        Pure White: #FFFFFF
+        */
+        * {
+            background-color: #FFF2E6;
+        }
+        header, footer {
+            background-color: #2E1A47;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            text-align: center;
+            color: #FFF2E6;
+            background-color: #2E1A47;
+        }
+        .nav {
+            position: sticky;
+            top: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            gap: 12px;
+            background-color: #2E1A47;
+            padding: 5px;
+        }
+        .nav a {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: right;
+            text-decoration: none;
+            color: #2E1A47;
+            background-color: #FF6F59;
+        }
+        .nav a:hover {
+            background-color: #00A896;
+        }
+        .website {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #00A896;
+        }
+        .website ol {
+            list-style: none;
+            display: flex;
+            gap: 5px;
+            padding-right: 30px;
+        }
+        .website ol li {
+            color: #FFF2E6;
+            background-color: #2E1A47;
+            border: 1px solid #00A896;
+        }
+        .osi {
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid #00A896;
+            padding: 10px;
+        }
+        .osi ol {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .osi ol li {
+            color: #FFF2E6;
+            background-color: #2E1A47;
+            padding: 10px;
+        }
+        .tcp_ip {
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid #00A896;
+            padding: 10px;
+        }
+        .tcp_ip ol {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .tcp_ip ol li {
+            color: #FFF2E6;
+            background-color: #2E1A47;
+            padding: 10px;
+        }
+        footer p {
+            background-color: #2E1A47;
+            color: #FFF2E6;
+        }
+        </style>
+</head>
+<body>
+    <header>
+        <h1>Networking Fundamentals</h1>
+    </header>
+    <div class="nav">
+        <a href="#website">Website Visit Process</a>
+        <a href="#osi">The OSI Layer</a>
+        <a href="#tcp_ip">The TCP/IP Layer</a>
+    </div>
+    <div class="website" id="website">
+        <h2>What happens when you open a website?</h2>
+        <ol>
+            <li>User enters the URL</li>
+            <li>Browser sends an HTTP request</li>
+            <li>Server processes the request</li>
+            <li>Server sends an HTTP response</li>
+            <li>Browser loads the website</li>
+        </ol>
+    </div>
+    <div class="osi" id="osi">
+        <h2>The OSI Model</h2>
+        <ol>
+            <li>Application Layer</li>
+            <li>Presentation Layer</li>
+            <li>Session Layer</li>
+            <li>Transport Layer</li>
+            <li>Network Layer</li>
+            <li>Data Link Layer</li>
+            <li>Physical Layer</li>
+        </ol>
+    </div>
+    <div class="tcp_ip" id="tcp_ip">
+        <h2>The TCP/IP Model</h2>
+        <ol>
+            <li>Application Layer</li>
+            <li>Transport Layer</li>
+            <li>Network Layer</li>
+            <li>Physical Layer</li>
+        </ol>
+    </div>
+    <footer>
+        <p>Copyright 2026</p>
+    </footer>
+</body>
+</html>

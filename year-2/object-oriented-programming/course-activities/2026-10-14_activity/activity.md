@@ -1,0 +1,3 @@
+- Root: [BorderPane]
+- Branches: [VBox]
+- Leaves: [Label('User Registration'), Label('Create your new developer account'), Label('FULL NAME'), Textfield, Label('EMAIL ADDRESS'), Button('Register Now')]

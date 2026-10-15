@@ -1,0 +1,40 @@
+h1 {
+    font-family: serif, 'Courier New';
+    font-size: 2rem;
+    font-weight: normal;
+    text-align: center;
+    text-decoration: underline;
+}
+p {
+    font-family: monospace, 'Times New Roman';
+    font-size: 3vw;
+    line-height: 1.5;
+}
+#first-paragraph {
+    font-weight: 600;
+    text-align: right;
+    background-color: antiquewhite;
+    padding: 2em;
+    border: 2px solid black;
+    margin: 2em;
+}
+#second-paragraph {
+    font-style: italic;
+    text-align: justify;
+    background-color: palegoldenrod;
+    padding: 10px 15px;
+    border: 2px solid black;
+    margin: 10px 20px 30px 40px;
+}
+#third-paragraph {
+    box-sizing: border-box;
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}

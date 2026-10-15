@@ -1,0 +1,21 @@
+#first-paragraphs p {
+    display: block;
+    width: 150px;
+}
+#second-paragraphs p {
+    display: inline-block;
+    width: 150px;
+}
+.first-paragraph {
+    background-color:antiquewhite;
+}
+.second-paragraph {
+    background-color:bisque;
+}
+.third-paragraph {
+    background-color:beige;
+}
+.flex-container {
+    display: flex;
+    align-items: center;
+}

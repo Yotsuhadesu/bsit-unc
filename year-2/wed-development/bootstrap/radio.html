@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <form>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="contactMethod" id="contactEmail" value="email"
+            data-bs-toggle="collapse" data-bs-target="#emailPanel" checked>
+            <label class="form-check-label" for="contactEmail">Email</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="contactMethod" id="contactNumber" value="number"
+            data-bs-toggle="collapse" data-bs-target="#numberPanel">
+            <label class="form-check-label" for="contactNumber">Phone Number</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="contactMethod" id="contactMessenger" value="messenger"
+            data-bs-toggle="collapse" data-bs-target="#messengerPanel">
+            <label class="form-check-label" for="contactMessenger">Messenger</label>
+        </div>
+
+        <div id="contactPanels">
+            <div class="collapse show" id="emailPanel" data-bs-parent="#contactPanels">
+                <label class="form-label" for="emailInput">Your Email Address</label>
+                <input class="form-control" type="email" name="emailInput" id="emailInput" placeholder="user@example.com">
+            </div>
+            <div class="collapse" id="numberPanel" data-bs-parent="#contactPanels">
+                <label class="form-label" for="numberInput">Your Phone Number</label>
+                <input class="form-control" type="tel" name="numberInput" id="numberInput" placeholder="09xx-xxx-xxxx">
+            </div>
+            <div class="collapse" id="messengerPanel" data-bs-parent="#contactPanels">
+                <label class="form-label" for="messengerInput">Your Messenger Name</label>
+                <input class="form-control" type="text" name="messengerInput" id="messengerInput">
+            </div>
+        </div>
+    </form>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

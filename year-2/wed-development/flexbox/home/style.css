@@ -1,0 +1,21 @@
+.buttons {
+    display: flex;
+    justify-content:space-evenly;
+}
+.box {
+    width: 100px;
+    height: 100px;
+    background-color:crimson;
+}
+.center_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.column_stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}

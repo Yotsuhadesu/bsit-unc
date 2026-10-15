@@ -1,0 +1,19 @@
+CSS Syntax:
+1. Selector - which element to design
+2. Property - which attribute of the element to change/design
+3. Value - specific changes to apply
+
+Selector { Property : Value }
+Ex. h1 { color : blue }
+
+Comment 
+/* This is a CSS comment. */
+
+Ways to Apply CSS
+1. Inline - directly apply to an element using the style attribute
+    Syntax: <tag style="property : value;">Content</tag>
+    Advantage: easy to apply, quick testing, highest priority, good for singe elements
+    Disadvantages: difficult to maintain, code repetition, no reusability, large html size
+2. Internal - apply within a single HTML page
+    Advantages: easier to maintain, centralized in one location, style multiple elements at once
+3. External - styling via separate file and linking it to the html file
