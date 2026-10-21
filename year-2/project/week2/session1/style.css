@@ -1,0 +1,83 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    box-sizing: border-box;
+    height: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 2px solid black;
+}
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+.card {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;  /*spacing between items*/
+    box-sizing: border-box;
+    width: 300px;
+    padding: 12px;
+    border: 1px solid black;
+}
+.avatar {
+    width: 150px;
+    height: 100px;
+}
+.role {
+    color: #666;
+}
+.stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 360px;
+    padding: 16px;
+    border: 2px solid black;
+}
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+.number {
+    font-weight: bold;
+    font-size: 24px;
+}
+.label {
+    color: #666;
+    font-size: 12px;
+}
+.pricing-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 500px;
+    padding: 10px;
+}
+.plan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 140px;
+    height: 160px;
+    border: 1px solid black;
+}
+.plan.featured {
+    border: 2px solid black;
+}
+.price {
+    font-weight: bold;
+    font-size: 18px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Violet Evergarden
+        </h1>
+        <nav>
+            <!--nav is a list of links-->
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Episodes</a></li>
+                <li><a href="#">Movies</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>
+                A Page for Violet Evergarden
+            </h2>
+            <p>
+                Violet Evergarden is a coming-of-age fantasy 
+                anime drama made by Kyoto Animation studio. 
+                The story is about the journey of Violet Evergarden, 
+                a young girl soldier treated as a killing tool in a war.
+            </p>
+        </section>
+        <section>
+            <!--
+            Name (text input)
+            Email (email input)
+            A dropdown for "Reason for contact" (at least 3 options)
+            A radio group for something (your choice — e.g. "Preferred contact method": Email / Phone)
+            A message textarea
+            A submit button
+            -->
+            <h3>
+                Fill Your Contact:
+            </h3>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Evergerden, Violet">
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="violet@gmail.com">
+                <br>
+                <label for="contact_method">Contact Method:</label>
+                <input type="radio" id="messenger" name="contact_method" value="messenger">
+                <label for="messenger">Messenger</label>
+                <input type="radio" id="gmail" name="contact_method" value="gmail">
+                <label for="gmail">Gmail</label>
+                <input type="radio" id="instagram" name="contact_method" value="instagram">
+                <label for="instagram">Instagram</label>
+                <br>
+                <label for="city">City:</label>
+                <select name="city" id="city">
+                    <option value="pili">Pili</option>
+                    <option value="bula">Bula</option>
+                    <option value="naga">Naga</option>
+                </select>
+                <br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" cols="30" rows="2"></textarea>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright 2026</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,23 @@
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+header {
+    background-color: #2196F3;
+    padding: 10px;
+    text-align: center;
+}
+body {
+   font-family: 'Courier New', Courier, monospace;
+    background-color: #E3F2FD;
+    padding: 20px;
+}
+article {
+    text-align: justify;
+}
+footer {
+    background-color: #2196F3;
+    padding: 10px;
+}
