@@ -1,5 +1,8 @@
 package com.entryapp;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,21 +12,23 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class Controller {
+public class UserEntryController {
     @FXML
-    private TableColumn<Student, String> colLastName;
+    private TableColumn<Person, String> colLastName;
     @FXML
-    private TableColumn<Student, String> colFirstName;
+    private TableColumn<Person, String> colFirstName;
     @FXML
-    private TableColumn<Student, String> colMiddleName;
+    private TableColumn<Person, String> colMiddleName;
     @FXML
-    private TableColumn<Student, String> colGender;
+    private TableColumn<Person, Integer> colAge;
     @FXML
-    private TableColumn<Student, String> colBirthday;
+    private TableColumn<Person, String> colGender;
     @FXML
-    private TableColumn<Student, String> colAddress;
+    private TableColumn<Person, LocalDate> colBirthday;
     @FXML
-    private TableColumn<Student, String> colContactNumber;
+    private TableColumn<Person, String> colAddress;
+    @FXML
+    private TableColumn<Person, String> colContactNumber;
 
     @FXML
     private TextField lastNameField;
@@ -41,8 +46,8 @@ public class Controller {
     private TextField contactNumberField;
     
     @FXML 
-    TableView<Student> tableStudents;
-    ObservableList<Student> studentList = FXCollections.observableArrayList();
+    TableView<Person> tableStudents;
+    ObservableList<Person> studentList = FXCollections.observableArrayList();
 
     @FXML
     void submit(ActionEvent event) {
@@ -50,11 +55,21 @@ public class Controller {
         String firstName = firstNameField.getText();
         String middleName = middleNameField.getText();
         String gender = genderField.getText();
-        String birthday = birthdayField.getText();
+        LocalDate birthday = null;
         String address = addressField.getText();
         String contactNumber = contactNumberField.getText();
-        if (!lastName.isBlank() && !firstName.isBlank() && !gender.isBlank() && !birthday.isBlank() && !address.isBlank() && !contactNumber.isBlank()) {
-            studentList.add(new Student(lastName, firstName, middleName, gender, birthday, address, contactNumber));
+        
+        String strBirthday = birthdayField.getText();
+        if (!strBirthday.isBlank()) {
+            try {
+                birthday = LocalDate.parse(strBirthday);
+            } catch (DateTimeParseException e) {
+                birthday = null;
+            }
+        }
+
+        if (!lastName.isBlank() && !firstName.isBlank() && !gender.isBlank() && birthday != null && !address.isBlank() && !contactNumber.isBlank()) {
+            studentList.add(new Person(lastName, firstName, middleName, gender, birthday, address, contactNumber));
             lastNameField.clear();
             firstNameField.clear();
             middleNameField.clear();
@@ -71,6 +86,7 @@ public class Controller {
         colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         colMiddleName.setCellValueFactory(new PropertyValueFactory<>("middleName"));
+        colAge.setCellValueFactory(new PropertyValueFactory<>("age"));
         colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         colBirthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
