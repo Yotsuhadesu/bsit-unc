@@ -2,8 +2,10 @@ package com.transactionfx;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -103,10 +105,7 @@ public class TransactionAppController {
     void clearRecordButtonClicked(ActionEvent event) {
 
     }
-    @FXML
-    void saveRecordButtonClicked(ActionEvent event) {
-
-    }
+    
     @FXML
     void searchButtonClicked(ActionEvent event) {
 
@@ -169,6 +168,8 @@ public class TransactionAppController {
     private VBox totalSalesPane;
 
     private List<VBox> panes;
+    ArrayList<Transaction> transactions;
+
 
     @FXML
     private void initialize() {
@@ -192,6 +193,8 @@ public class TransactionAppController {
         clmItem.setCellValueFactory(new PropertyValueFactory<>("item"));
         clmStatus.setCellValueFactory(new PropertyValueFactory<>("tranStatus"));
         clmTotal.setCellValueFactory(new PropertyValueFactory<>("totAmount"));
+
+        transactions = FileHandler.loadTransactions();
     }
     private void showPage(VBox chosen) {
         for (VBox pane : panes) {
@@ -200,6 +203,9 @@ public class TransactionAppController {
         }
         chosen.setVisible(true);
         chosen.setManaged(true);
+    }
+    private void showTransactions(List<Transaction> toShow) {
+        tblTransaction.setItems(FXCollections.observableArrayList(toShow));
     }
 
     // buttons for switching panes
@@ -223,10 +229,18 @@ public class TransactionAppController {
     @FXML
     void viewListButtonClicked(ActionEvent event) {
         showPage(showRecordPane);
+        showTransactions(transactions);
     }
     @FXML
     void viewPendingsButtonClicked(ActionEvent event) {
         showPage(showRecordPane);
+        ArrayList<Transaction> pendingTransactions = new ArrayList<>();
+        for (Transaction transaction : transactions) {
+            if (transaction.getTranStatus().equalsIgnoreCase("Pending")) {
+                pendingTransactions.add(transaction);
+            }
+        }
+        showTransactions(pendingTransactions);
     }
     @FXML
     void viewRecordButtonClicked(ActionEvent event) {
@@ -235,5 +249,60 @@ public class TransactionAppController {
     @FXML
     void viewTotalSalesButtonClicked(ActionEvent event) {
         showPage(totalSalesPane);
+    }
+
+    @FXML
+    void saveRecordButtonClicked(ActionEvent event) {
+        String cusLastName = txtLastName.getText().trim();
+        if (!stringInputValidation("Last name", cusLastName)) {
+            return;
+        }
+        String cusFirstName = txtFirstName.getText().trim();
+        if (!stringInputValidation("First name", cusFirstName)) {
+            return;
+        }
+        String cusConNum = txtContactNumber.getText().trim();
+        if (!stringInputValidation("Contact number", cusConNum)) {
+            return;
+        }
+        String delAddress = txtDeliveryAddress.getText().trim();
+        if (!stringInputValidation("Delivery address", delAddress)) {
+            return;
+        }
+        String itemName = txtItemName.getText().trim();
+        if (!stringInputValidation("Item name", itemName)) {
+            return;
+        }
+        int quantity;
+        try {
+            quantity = Integer.parseInt(txtItemQuantity.getText().trim());
+        } catch (NumberFormatException e) {
+            lblOperationStatus.setText("Quantity must be a whole number.");
+            return;
+        }
+        BigDecimal itemPrice;
+        try {
+            itemPrice = new BigDecimal(txtItemPrice.getText().trim());
+        } catch (NumberFormatException e) {
+            lblOperationStatus.setText("Item price must be a number.");
+            return;
+        }
+        BigDecimal delFee;
+        try {
+            delFee = new BigDecimal(txtDeliveryFee.getText().trim());
+        } catch (NumberFormatException e) {
+            lblOperationStatus.setText("Delivery fee must be a number.");
+            return;
+        }
+        lblOperationStatus.setText("Inputs OK");
+    }
+
+    private boolean stringInputValidation(String info, String input) {
+        if (input.isBlank() || input.contains("\t")) {
+            lblOperationStatus.setText(info + " is required.");
+            return false;
+        } else {
+            return true;
+        }
     }
 }
