@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #F4FAFD;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.transactionfx.TransactionAppController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #F4FAFD;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.transactionfx.TransactionAppController">
    <top>
       <VBox prefHeight="44.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -87,7 +87,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox fx:id="addRecordPane" spacing="8.0">
+            <VBox fx:id="addRecordPane" spacing="8.0" visible="false">
                <children>
                   <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Customer Information">
                      <font>
@@ -227,7 +227,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="updateRecordPane" spacing="8.0" visible="false" StackPane.alignment="CENTER">
+            <VBox fx:id="updateRecordPane" spacing="8.0" StackPane.alignment="CENTER">
                <children>
                   <GridPane hgap="8.0">
                     <columnConstraints>

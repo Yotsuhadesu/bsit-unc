@@ -124,7 +124,7 @@ public class Transaction implements Record, IPersistable {
      */
     public void setItemQuantity(int itemQuantity) throws InvalidQuantityException {
         if (itemQuantity <= 0) {
-            throw new InvalidQuantityException(">> Invalid item quantity.");
+            throw new InvalidQuantityException("Invalid item quantity.");
         } else {
             this.itemQuantity = itemQuantity;
         }
@@ -137,7 +137,7 @@ public class Transaction implements Record, IPersistable {
      */
     public void setItemPrice(BigDecimal itemPrice) throws InvalidPriceException {
         if (itemPrice.compareTo(BigDecimal.ZERO) < 0 || itemPrice.compareTo(BigDecimal.ZERO) == 0) {
-            throw new InvalidPriceException(">> Invalid item price.");
+            throw new InvalidPriceException("Invalid item price.");
         } else {
             this.itemPrice = itemPrice;
         }
@@ -150,7 +150,7 @@ public class Transaction implements Record, IPersistable {
      */
     public void setDelFee(BigDecimal delFee) throws InvalidTransactionException {
         if (delFee.compareTo(BigDecimal.ZERO) < 0) {
-            throw new InvalidTransactionException(">> Invalid delivery fee.");
+            throw new InvalidTransactionException("Invalid delivery fee.");
         } else {
             this.delFee = delFee;
         }

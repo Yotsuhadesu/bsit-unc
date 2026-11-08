@@ -68,16 +68,12 @@ public class TransactionAppController {
     private Label lblPaymentMethod;
     @FXML
     private Label lblTotalSales;
-    @FXML
-    private TextField txtContactNumber;
-    @FXML
-    private TextField txtDeliveryAddress;
-    @FXML
-    private TextField txtDeliveryFee;
+     @FXML
+    private TextField txtSearch;
     @FXML
     private TextField txtDltTransactionID;
-    @FXML
-    private TextField txtFirstName;
+
+    // text fields for add record
     @FXML
     private TextField txtItemName;
     @FXML
@@ -87,7 +83,15 @@ public class TransactionAppController {
     @FXML
     private TextField txtLastName;
     @FXML
-    private TextField txtSearch;
+    private TextField txtContactNumber;
+    @FXML
+    private TextField txtDeliveryAddress;
+    @FXML
+    private TextField txtDeliveryFee;
+    @FXML
+    private TextField txtFirstName;
+
+    // text fields for update record
     @FXML
     private TextField txtUpdContactNumber;
     @FXML
@@ -96,20 +100,7 @@ public class TransactionAppController {
     private TextField txtUpdLastName;
     @FXML
     private TextField txtUpdTransactionID;
-
-    @FXML
-    void clearButtonClicked(ActionEvent event) {
-        
-    }
-    @FXML
-    void clearRecordButtonClicked(ActionEvent event) {
-
-    }
     
-    @FXML
-    void searchButtonClicked(ActionEvent event) {
-
-    }
     @FXML
     void searchDltButtonClicked(ActionEvent event) {
 
@@ -294,7 +285,101 @@ public class TransactionAppController {
             lblOperationStatus.setText("Delivery fee must be a number.");
             return;
         }
-        lblOperationStatus.setText("Inputs OK");
+        
+        // setting the new record using the inputs
+        Transaction newTransaction = new Transaction();
+        newTransaction.setTranID(FileHandler.getLastTranId() + 1);
+        newTransaction.setTranDate(LocalDate.now());
+        newTransaction.setCusLastName(cusLastName);
+        newTransaction.setCusFirstName(cusFirstName);
+        newTransaction.setCusConNum(cusConNum);
+        newTransaction.setDelAddress(delAddress);
+        newTransaction.setItem(itemName);
+        newTransaction.setTranStatus(cbTransactionStatus.getValue());
+        newTransaction.setPayMethod(cbPaymentMethod.getValue());
+        try {
+            newTransaction.setItemQuantity(quantity);
+            newTransaction.setItemPrice(itemPrice);
+            newTransaction.setDelFee(delFee);
+            newTransaction.compTotAmount();
+        } catch (InvalidTransactionException e) {
+            lblOperationStatus.setText(e.getMessage());
+            return;
+        }
+        transactions.add(newTransaction);
+        boolean isSuccess = FileHandler.saveTransactions(transactions);
+        if (isSuccess) {
+            lblOperationStatus.setText("New transaction record saved.");
+        } else {
+            lblOperationStatus.setText("Transaction record failed to save.");
+        }
+    }
+
+    // clear button for update record pane
+    @FXML
+    void clearButtonClicked(ActionEvent event) {
+        txtUpdLastName.clear();
+        txtUpdFirstName.clear();
+        txtUpdContactNumber.clear();
+        txtUpdTransactionID.clear();
+        cbUpdStatus.setValue("Pending");
+        lblOperationStatus.setText("Inputs cleared.");
+    }
+    // clear button for add record pane
+    @FXML
+    void clearRecordButtonClicked(ActionEvent event) {
+        txtLastName.clear();
+        txtFirstName.clear();
+        txtContactNumber.clear();
+        txtDeliveryAddress.clear();
+        txtItemName.clear();
+        txtItemPrice.clear();
+        txtItemQuantity.clear();
+        txtDeliveryFee.clear();
+        cbPaymentMethod.setValue("GCash");
+        cbTransactionStatus.setValue("Pending");
+        lblOperationStatus.setText("Inputs cleared.");
+    }
+
+    @FXML
+    void searchButtonClicked(ActionEvent event) {
+        ArrayList<Transaction> foundTransactions = new ArrayList<>();
+        int tranCount = 0;
+        if (cbSearch.getValue().equals("ID")) {
+            try {
+                int tranID = Integer.parseInt(txtSearch.getText().trim());
+                for (Transaction transaction : transactions) {
+                    if (tranID == transaction.getRecordID()) {
+                        foundTransactions.add(transaction);
+                        tranCount++;
+                    }
+                }
+            } catch (NumberFormatException e) {
+                lblOperationStatus.setText("Invalid ID entered.");
+                return;
+            }
+        } else {
+            String lastName = txtSearch.getText().trim();
+            if (!lastName.isBlank()) {
+                for (Transaction transaction : transactions) {
+                    if (lastName.equalsIgnoreCase(transaction.getCusLastName())) {
+                        foundTransactions.add(transaction);
+                        tranCount++;
+                    }
+                }
+            } else {
+                lblOperationStatus.setText("Invalid last name entered.");
+                return;
+            }
+        }
+
+        showTransactions(foundTransactions);
+        if (!foundTransactions.isEmpty()) {
+            lblOperationStatus.setText( tranCount + " transactions found");
+        } else {
+            lblOperationStatus.setText("No transactions found");
+        }
+        txtSearch.clear();
     }
 
     private boolean stringInputValidation(String info, String input) {
